@@ -15,11 +15,12 @@ export class UserComponent implements OnInit {
 
   constructor(private userService: UserService, private eventService: EventService) {
     this.users = new Array<User>();
-    this.userToAdd = new User();
-    this.buttonName = 'Add';
+
   }
 
   ngOnInit() {
+    this.userToAdd = new User();
+    this.buttonName = 'Add';
     this.eventService.showLoading(true);
     this.userService.getUser().subscribe((users) => {
       this.users = users;
@@ -31,7 +32,7 @@ export class UserComponent implements OnInit {
       });
   }
 
-  addUser() {
+  addUser(){
     if (!this.userToAdd.first_Name || this.userToAdd.first_Name === '') {
       this.eventService.showWarning('Please add first Name ');
       return;
@@ -44,20 +45,35 @@ export class UserComponent implements OnInit {
       this.eventService.showWarning('Please enter employee id');
       return;
     }
-    this.eventService.showLoading(true);
-    this.userService.AddUser(this.userToAdd).subscribe((data) => {
-      this.eventService.showSuccess('Saved successfully')
-      this.ngOnInit();
-      this.eventService.showLoading(false);
-    },
-      (error) => {
-        this.eventService.showError(error);
+    if (this.buttonName==='Add') {
+      this.eventService.showLoading(true);
+      this.userService.addUser(this.userToAdd).subscribe((data) => {
+        this.eventService.showSuccess('Saved successfully')
+        this.ngOnInit();
         this.eventService.showLoading(false);
-      });
+      },
+        (error) => {
+          this.eventService.showError(error);
+          this.eventService.showLoading(false);
+        });
+    }
+    if (this.buttonName==='Update') {
+      this.eventService.showLoading(true);
+      this.userService.updateUser(this.userToAdd).subscribe((data) => {
+        this.eventService.showSuccess('Update successfully')
+        this.ngOnInit();
+        this.eventService.showLoading(false);
+      },
+        (error) => {
+          this.eventService.showError(error);
+          this.eventService.showLoading(false);
+        });
+    }
   }
 
   resetUser() {
     this.userToAdd = new User();
+    this.buttonName = 'Add';
   }
 
   editUser(user) {
@@ -66,7 +82,16 @@ export class UserComponent implements OnInit {
   }
 
   deleteUser(user) {
-
+    this.eventService.showLoading(true);
+    this.userService.deleteUser(this.userToAdd).subscribe((data) => {
+      this.eventService.showSuccess('User Deleted successfully')
+      this.ngOnInit();
+      this.eventService.showLoading(false);
+    },
+      (error) => {
+        this.eventService.showError(error);
+        this.eventService.showLoading(false);
+      });
   }
 
   sortUser(type: number) {

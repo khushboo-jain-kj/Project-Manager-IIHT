@@ -20,8 +20,26 @@ export class UserService extends BaseService {
             .pipe(catchError(this.handleError));
     }
     
-    AddUser(user:User): Observable<any> {
+    addUser(user:User): Observable<any> {
         return this.http.post(super.baseurl() + 'api/user/add',user)
+            .pipe(map((res: Response) => {
+                const data = super.extractData(res);
+                return data;
+            }))
+            .pipe(catchError(this.handleError));
+    }
+
+    updateUser(user:User): Observable<any> {
+        return this.http.post(super.baseurl() + 'api/user/update',user)
+            .pipe(map((res: Response) => {
+                const data = super.extractData(res);
+                return data;
+            }))
+            .pipe(catchError(this.handleError));
+    }
+
+   deleteUser(user:User): Observable<any> {
+        return this.http.post(super.baseurl() + 'api/user/update',user)
             .pipe(map((res: Response) => {
                 const data = super.extractData(res);
                 return data;

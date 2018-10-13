@@ -4,24 +4,24 @@
             <a class="navbar-brand">Project Management</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active">
-                <a href="#">Add Project</a>
+            <li [routerLinkActive]="['active']">
+                <a [routerLink]="['/project']">Add Project</a>
             </li>
-            <li>
-                <a href="#">Add Task</a>
+            <li [routerLinkActive]="['active']">
+                <a [routerLink]="['/addTask']">Add Task</a>
             </li>
-            <li>
-                <a href="#">Add User</a>
+            <li [routerLinkActive]="['active']">
+                <a [routerLink]="['/user']">Add User</a>
             </li>
-            <li>
-                <a href="#">View Task</a>
+            <li [routerLinkActive]="['active']">
+                <a [routerLink]="['/viewTask']">View Task</a>
             </li>
         </ul>
     </div>
 </nav>
 
 <div class="container" style="margin-top:70px">
-    <app-user></app-user>
+    <router-outlet></router-outlet>
 </div>
 <div id="loading-div" text-center class="modal-backdrop">
     <div text-center class="modal-backdrop-loading loader">
