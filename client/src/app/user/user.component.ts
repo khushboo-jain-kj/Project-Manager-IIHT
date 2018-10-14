@@ -83,7 +83,7 @@ export class UserComponent implements OnInit {
 
   deleteUser(user) {
     this.eventService.showLoading(true);
-    this.userService.deleteUser(this.userToAdd).subscribe((data) => {
+    this.userService.deleteUser(user).subscribe((data) => {
       this.eventService.showSuccess('User Deleted successfully')
       this.ngOnInit();
       this.eventService.showLoading(false);

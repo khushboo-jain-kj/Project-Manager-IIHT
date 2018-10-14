@@ -1,3 +1,86 @@
-<p>
-  project works!
-</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Add Project
+  </div>
+  <div class="panel-body">
+    <div class="form-horizontal">
+      <div class="form-group required">
+        <label class="control-label col-sm-2" for="name">Project:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="name" placeholder="Enter name" [(ngModel)]="projectToAdd.project1">
+        </div>
+      </div>
+      <div class="form-group inline">
+        <div class="col-sm-offset-2 col-sm-3">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" [(ngModel)]="startEndDateEnable" (ngModelChange)="setStartEndDateChange($event)"> Set Start and End Date
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-7">
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="startDate" bsDatepicker [minDate]="minStartDate" [(ngModel)]="projectToAdd.start_Date"
+                (ngModelChange)="setMinEndDate($event)" [disabled]="!startEndDateEnable" [bsConfig]="{ dateInputFormat: 'MM-DD-YYYY',containerClass: 'theme-blue',showWeekNumbers:false }">
+            </div>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="endDate" bsDatepicker [minDate]="minEndDate" [(ngModel)]="projectToAdd.end_Date"
+                [disabled]="!startEndDateEnable" [bsConfig]="{ dateInputFormat: 'MM-DD-YYYY',containerClass: 'theme-blue',showWeekNumbers:false }">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group required">
+        <label class="control-label col-sm-2" for="priority">Priority:</label>
+        <div class="col-sm-10">
+          <input type="range" class="form-control" id="priority" [(ngModel)]="projectToAdd.priority" min="0" max="30">
+        </div>
+      </div>
+      <div class="form-group required">
+        <label class="control-label col-sm-2" for="user">Manager:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="user" [(ngModel)]="selectedUser" disabled>
+        </div>
+        <div class="col-sm-4">
+          <button class="btn btn-primary" (click)="openModal(userModal)">Search</button>
+        </div>
+      </div>
+      <div class=" pull-right">
+        <div class="col-sm-12">
+          <button class="btn btn-primary" (click)="addProject()">{{buttonName}}</button>
+          <button class="btn btn-default" style="margin-left:20px;" (click)="resetProject()">Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading">View Project</div>
+  <div class="panel-body">
+
+  </div>
+</div>
+<ng-template #userModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Search User</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row" style="margin-bottom:15px">
+      <div class="col-sm-12">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText">
+      </div>
+    </div>
+    <div class="list-group">
+      <a class="list-group-item" [class.active]="selectedIndexUser === i" *ngFor="let user of users|filteruser:{first_Name:searchText,last_Name:searchText}; let i = index"
+        (click)="setIndex(i)">{{user.first_Name+' ' +user.last_Name}}</a>
+    </div>
+  </div>
+  <div class="modal-footer text-right">
+    <button class="btn btn-primary" (click)="selectUser()">Ok</button>
+    <button class="btn btn-default" (click)="modalRef.hide();selectedIndexUser=null;">Cancel</button>
+  </div>
+</ng-template>

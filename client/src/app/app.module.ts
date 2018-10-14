@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from "@angular/router";
+import { BsDatepickerModule, ModalModule } from 'ngx-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import { UserService } from './services/user.service';
@@ -15,6 +17,8 @@ import { FilteruserPipe } from './pipes/filteruser.pipe';
 import { ProjectComponent } from './project/project.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { ViewTaskComponent } from './view-task/view-task.component';
+import { ProjectService } from './services/project.service';
+import { TaskService } from './services/task.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'user', pathMatch: 'full' },
@@ -39,6 +43,8 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
+    ModalModule.forRoot(),
     RouterModule.forRoot(routes, { useHash: true }),
     ToastrModule.forRoot({
       timeOut: 3000,
@@ -46,7 +52,7 @@ const routes: Routes = [
       preventDuplicates: true
     })
   ],
-  providers: [UserService, EventService, BaseService],
+  providers: [UserService, EventService, BaseService, ProjectService,TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
