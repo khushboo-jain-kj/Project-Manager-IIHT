@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace projectManager
+namespace projectManager.DAC
 {
     using System;
     using System.Collections.Generic;
@@ -18,9 +18,7 @@ namespace projectManager
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
         public string Employee_ID { get; set; }
-        public string Project_ID { get; set; }
-        public string Task_ID { get; set; }
-    
-        public virtual Project Project { get; set; }
+        public Nullable<int> Task_ID { get; set; }
+        public Nullable<int> Project_ID { get; set; }
     }
 }

@@ -163,8 +163,8 @@ export class AddTaskComponent implements OnInit {
   }
 
   selectProj() {
-    this.taskToAdd.project_ID = +this.projects[this.selectedIndex].project_ID;
-    this.selectedProjName = this.projects[this.selectedIndex].project1;
+    this.taskToAdd.project_ID = +this.projects[this.selectedIndex].projectId;
+    this.selectedProjName = this.projects[this.selectedIndex].projectName;
     this.selectedIndex = null;
     this.modalRef.hide();
   }
@@ -176,8 +176,8 @@ export class AddTaskComponent implements OnInit {
     this.modalRef.hide();
   }
   selectUser() {
-    this.taskToAdd.user_ID = +this.users[this.selectedIndexUser].user_ID;
-    this.selectedUser = this.users[this.selectedIndexUser].first_Name;
+    this.taskToAdd.user_ID = +this.users[this.selectedIndexUser].userId;
+    this.selectedUser = this.users[this.selectedIndexUser].firstName;
     this.selectedIndexUser = null;
     this.modalRef.hide();
   }

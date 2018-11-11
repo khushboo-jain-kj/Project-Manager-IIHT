@@ -29,4 +29,12 @@ export class TaskService extends BaseService {
             .pipe(catchError(this.handleError));
     }
 
+    getAllTasksByProjectId(projectId:number):Observable<Task[]>{
+        return this.http.get(super.baseurl() + 'api/task/'+projectId)
+        .pipe(map((res: Response) => {
+            const data = super.extractData(res);
+            return data;
+        }))
+        .pipe(catchError(this.handleError));
+    }
 }   

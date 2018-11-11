@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from "@angular/router";
 import { BsDatepickerModule, ModalModule } from 'ngx-bootstrap';
-
+import { Ng5SliderModule } from 'ng5-slider';
 
 import { AppComponent } from './app.component';
 import { UserService } from './services/user.service';
@@ -50,7 +50,8 @@ const routes: Routes = [
       timeOut: 3000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true
-    })
+    }),
+    Ng5SliderModule
   ],
   providers: [UserService, EventService, BaseService, ProjectService,TaskService],
   bootstrap: [AppComponent]

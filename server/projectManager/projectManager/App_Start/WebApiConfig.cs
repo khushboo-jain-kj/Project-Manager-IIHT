@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using ProjectManager.ActionFilters;
 
 namespace projectManager
 {
@@ -14,6 +15,9 @@ namespace projectManager
             config.MapHttpAttributeRoutes();
 
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Never;
+
+            config.Filters.Add(new ProjectManagerLogFilter());
+            config.Filters.Add(new ProjectManagerExceptionFilter());
 
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             config.Formatters.Remove(config.Formatters.XmlFormatter);

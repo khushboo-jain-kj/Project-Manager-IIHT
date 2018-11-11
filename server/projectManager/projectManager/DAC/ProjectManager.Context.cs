@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace projectManager
+namespace projectManager.DAC
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Project_ManagerEntities : DbContext
+    public partial class ProjectManagerEntities : DbContext
     {
-        public Project_ManagerEntities()
-            : base("name=Project_ManagerEntities")
+        public ProjectManagerEntities()
+            : base("name=ProjectManagerEntities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace projectManager
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Parent_Task> Parent_Task { get; set; }
+        public virtual DbSet<ParentTask> ParentTasks { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<Task> Tasks { get; set; }
         public virtual DbSet<User> Users { get; set; }

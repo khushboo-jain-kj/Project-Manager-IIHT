@@ -7,7 +7,7 @@
       <div class="form-group required">
         <label class="control-label col-sm-2" for="name">Project:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="name" placeholder="Enter name" [(ngModel)]="projectToAdd.project1">
+          <input type="text" class="form-control" id="name" placeholder="Enter name" [(ngModel)]="projectToAdd.projectName">
         </div>
       </div>
       <div class="form-group inline">
@@ -21,20 +21,23 @@
         <div class="col-sm-7">
           <div class="col-sm-12">
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="startDate" bsDatepicker [minDate]="minStartDate" [(ngModel)]="projectToAdd.start_Date"
+              <input type="text" class="form-control" id="startDate" bsDatepicker [minDate]="minStartDate" [(ngModel)]="projectToAdd.projectStartDate"
                 (ngModelChange)="setMinEndDate($event)" [disabled]="!startEndDateEnable" [bsConfig]="{ dateInputFormat: 'MM-DD-YYYY',containerClass: 'theme-blue',showWeekNumbers:false }">
             </div>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="endDate" bsDatepicker [minDate]="minEndDate" [(ngModel)]="projectToAdd.end_Date"
+              <input type="text" class="form-control" id="endDate" bsDatepicker [minDate]="minEndDate" [(ngModel)]="projectToAdd.projectEndDate"
                 [disabled]="!startEndDateEnable" [bsConfig]="{ dateInputFormat: 'MM-DD-YYYY',containerClass: 'theme-blue',showWeekNumbers:false }">
             </div>
           </div>
         </div>
       </div>
       <div class="form-group required">
-        <label class="control-label col-sm-2" for="priority">Priority:</label>
+        <label class="control-label col-sm-2" for="priority" style="padding-top:20px">Priority:</label>
         <div class="col-sm-10">
-          <input type="range" class="form-control" id="priority" [(ngModel)]="projectToAdd.priority" min="0" max="30">
+          <ng5-slider [(value)]="projectToAdd.priority" [options]="{
+              floor: 0,
+              ceil: 30
+            }"></ng5-slider>
         </div>
       </div>
       <div class="form-group required">
@@ -58,7 +61,35 @@
 <div class="panel panel-primary">
   <div class="panel-heading">View Project</div>
   <div class="panel-body">
-
+    <div class="row" style="margin-bottom:15px">
+      <div class="col-sm-12">
+        <div class="col-sm-3" style="padding-left:0">
+          <input type="text" class="form-control" placeholder="Search.." [(ngModel)]="searchText">
+        </div>
+        <div class="col-sm-9 text-right" style="padding-right:0">
+          <strong>Sort By:</strong>
+          <button class="btn btn-default" (click)="sortProject(1)" style="margin-left:10px;">Start Date</button>
+          <button class="btn btn-default" (click)="sortProject(2)" style="margin-left:15px;">End Date</button>
+          <button class="btn btn-default" (click)="sortProject(3)" style="margin-left:15px;">Priority</button>
+          <button class="btn btn-default" (click)="sortProject(4)" style="margin-left:15px;">Completed</button>
+        </div>
+      </div>
+    </div>
+    <div class="flex-container" *ngFor="let project of projects|filteruser:{projectName:searchText,projectStartDate:searchText,projectEndDate:searchText}">
+      <ul class="list-group">
+        <li class="list-group-item">Project: {{project.projectName}}</li>
+        <li class="list-group-item">No fo Tasks:{{project.noOfTasks}} Completed: {{project.noOfCompletedTasks}}</li>
+        <li class="list-group-item">Start Date:{{project.projectStartDate|date:'longDate'}} End Date:{{project.projectEndDate|date:'longDate'}}</li>
+      </ul>
+      <div style="display:inline-block">
+        <label>Priority</label>
+        <span>{{project.priority}}</span>
+      </div>
+      <div class="view-buttons">
+        <button class="btn btn-primary" (click)="editUser(project)">Update</button>
+        <button class="btn btn-danger" (click)="deleteUser(project)">Suspend</button>
+      </div>
+    </div>
   </div>
 </div>
 <ng-template #userModal>
@@ -71,12 +102,13 @@
   <div class="modal-body">
     <div class="row" style="margin-bottom:15px">
       <div class="col-sm-12">
-        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTextUser">
       </div>
     </div>
     <div class="list-group">
-      <a class="list-group-item" [class.active]="selectedIndexUser === i" *ngFor="let user of users|filteruser:{first_Name:searchText,last_Name:searchText}; let i = index"
-        (click)="setIndex(i)">{{user.first_Name+' ' +user.last_Name}}</a>
+      <a class="list-group-item" [class.active]="selectedIndexUser === i" *ngFor="let user of users|filteruser:{firstName:searchTextUser
+        ,lastName:searchTextUser}; let i = index"
+        (click)="setIndex(i)">{{user.firstName+' ' +user.lastName}}</a>
     </div>
   </div>
   <div class="modal-footer text-right">

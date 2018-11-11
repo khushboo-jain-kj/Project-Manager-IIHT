@@ -1,0 +1,868 @@
+2018-11-11 11:14:57.7286|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000002-0003-fe00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:14:57.7856|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000002-0003-fe00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:21:53.3038|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000002-0002-f500-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:21:53.3518|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000002-0002-f500-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:22:19.8466|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000002-0000-fd00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/user/add
+Controller : ProjectManager.Controllers.UserController
+Action : InsertUserDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:22:20.1186|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000004-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:22:20.1186|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000004-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:30:08.4243|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000005-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:30:08.4793|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000005-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:30:19.9696|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000002-0002-f400-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/user/update
+Controller : ProjectManager.Controllers.UserController
+Action : UpdateUserDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:35:07.9100|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000005-0000-fe00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:35:07.9670|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000005-0000-fe00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:35:33.1603|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000007-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:35:33.1603|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000007-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:37:11.3011|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000009-0003-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/user/update
+Controller : ProjectManager.Controllers.UserController
+Action : UpdateUserDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:37:37.2433|INFO|ProjectManager.Utils.LoggingUtility|Request ID: 80000009-0003-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/user/update
+Controller : ProjectManager.Controllers.UserController
+Action : UpdateUserDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass1
+Error: Sequence contains no elements
+
+
+2018-11-11 11:38:10.6814|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000002-0001-fc00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:38:10.6864|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000002-0001-fc00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:38:42.1190|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000004-0002-f400-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:38:42.1250|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000004-0002-f400-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:41:08.9812|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000b-0003-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/user/update
+Controller : ProjectManager.Controllers.UserController
+Action : UpdateUserDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:41:17.4833|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000005-0001-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:41:17.4833|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000005-0001-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:41:35.4068|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000008-0000-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/user/delete
+Controller : ProjectManager.Controllers.UserController
+Action : DeleteUserDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:41:35.6528|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000006-0002-f400-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 11:41:35.6538|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000006-0002-f400-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:02:21.9995|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000006-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:02:22.0655|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000006-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:04:55.2570|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000c-0001-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:04:55.2680|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000c-0001-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:05:15.1297|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000008-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:05:15.1297|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000008-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:06:08.7932|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000e-0001-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:06:08.7952|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000e-0001-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:08:10.1451|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000a-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:08:10.1451|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000a-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:08:16.8350|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000010-0001-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:08:16.8350|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000010-0001-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:09:24.7910|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000c-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:09:24.7950|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000c-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:17:09.3906|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000002-0002-f300-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:17:09.4516|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000002-0002-f300-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:17:31.6178|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000012-0001-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:17:31.6178|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000012-0001-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:19:40.1088|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000b-0000-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:19:40.1088|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000b-0000-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:20:20.2323|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000d-0000-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:20:20.2323|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000d-0000-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:21:34.0684|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000010-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:21:34.0684|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000010-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:21:46.1412|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000004-0002-f300-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:21:46.1412|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000004-0002-f300-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:22:05.1025|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000014-0001-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:22:05.1025|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000014-0001-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:23:39.8092|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000012-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:23:39.8121|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000012-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:23:45.8222|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000016-0001-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:23:45.8222|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000016-0001-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:30:38.1239|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000008-0000-fe00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:30:38.1239|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000014-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:30:38.1239|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000e-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:30:38.1239|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000002-0000-fc00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:30:38.2009|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000002-0000-fc00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:30:38.2169|INFO|ProjectManager.Utils.LoggingUtility|Request ID: 8000000e-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass1
+Error: The operation was canceled.
+
+
+2018-11-11 12:30:38.2169|INFO|ProjectManager.Utils.LoggingUtility|Request ID: 80000014-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass1
+Error: The operation was canceled.
+
+
+2018-11-11 12:30:38.2169|INFO|ProjectManager.Utils.LoggingUtility|Request ID: 80000008-0000-fe00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass1
+Error: The operation was canceled.
+
+
+2018-11-11 12:31:02.4785|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000016-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:31:02.4785|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000016-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:31:11.4425|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000018-0003-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:31:11.4425|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000018-0003-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:31:18.5784|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000018-0001-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:31:18.5784|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000018-0001-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:32:11.2232|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000001a-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:32:11.2232|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000001a-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:32:19.5282|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000006-0002-f300-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:32:19.5292|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000006-0002-f300-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:32:19.9182|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000004-0000-fc00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:32:19.9192|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000004-0000-fc00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:38:08.7246|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000006-0001-fe00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:38:08.7866|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000006-0001-fe00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:38:20.9034|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000001c-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:38:20.9034|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000001c-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:38:27.4313|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000a-0002-f400-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:38:27.4313|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000a-0002-f400-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:46:24.5643|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000001d-0001-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:46:24.6273|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000001d-0001-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:46:47.3251|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000001f-0001-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/user/add
+Controller : ProjectManager.Controllers.UserController
+Action : InsertUserDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:46:47.3281|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000001f-0001-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/user/add
+Controller : ProjectManager.Controllers.UserController
+Action : InsertUserDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:46:47.6171|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000010-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:46:47.6171|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000010-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:46:57.4111|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000021-0001-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/user/add
+Controller : ProjectManager.Controllers.UserController
+Action : InsertUserDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:46:57.4111|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000021-0001-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/user/add
+Controller : ProjectManager.Controllers.UserController
+Action : InsertUserDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:46:57.6591|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000001e-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:46:57.6591|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000001e-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:47:01.4632|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000020-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:47:01.4632|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000020-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:47:11.5134|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000022-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:47:11.5134|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000022-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:47:18.4527|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000023-0001-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:47:18.4527|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000023-0001-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:47:44.2335|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000e-0002-f400-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:47:44.2335|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 8000000e-0002-f400-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:48:09.7435|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000012-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:48:09.7435|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000012-0000-fd00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/user
+Controller : ProjectManager.Controllers.UserController
+Action : GetUser
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:48:18.6074|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000024-0003-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:48:18.6074|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000024-0003-ff00-b63f-84710c7967bb
+Method: POST
+URL: http://localhost:49859/api/project/add
+Controller : ProjectManager.Controllers.ProjectController
+Action : InsertProjectDetails
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:48:32.6869|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000026-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+
+2018-11-11 12:48:32.6869|INFO|ProjectManager.Utils.LoggingUtility|Operation Result Format: JSON
+Request ID: 80000026-0003-ff00-b63f-84710c7967bb
+Method: GET
+URL: http://localhost:49859/api/project
+Controller : ProjectManager.Controllers.ProjectController
+Action : RetrieveProjects
+Action Parameters : System.Web.Http.Tracing.ITraceWriterExtensions+<>c__DisplayClass7
+

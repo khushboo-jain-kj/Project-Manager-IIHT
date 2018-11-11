@@ -25,33 +25,45 @@ export class ProjectComponent implements OnInit {
   selectedUser: string;
   users: Array<User>;
   searchText: string;
+  searchTextUser:string;
+  projects:Array<Project>;
 
   constructor(private eventService: EventService, private projectService: ProjectService,
     private userService: UserService, private modalService: BsModalService) {
     this.users = new Array<User>();
+    this.projects=new Array<Project>();
   }
 
   ngOnInit() {
     this.projectToAdd = new Project();
     this.buttonName = 'Add';
-    this.projectToAdd.priority = '0';
+    this.projectToAdd.priority = 0;
     this.minStartDate = new Date();
     this.minEndDate = new Date();
     this.minEndDate.setDate(this.minStartDate.getDate() + 1);
+    this.eventService.showLoading(true);
+    this.projectService.getProject().subscribe((project) => {
+      this.projects = project;
+      this.eventService.showLoading(false);
+    },
+      (error) => {
+        this.eventService.showError(error);
+        this.eventService.showLoading(false);
+      });
   }
   setStartEndDateChange($event) {
     if (this.startEndDateEnable) {
-      this.projectToAdd.start_Date = moment(new Date()).format('MM-DD-YYYY').toString();
-      this.projectToAdd.end_Date = moment(new Date()).add(1, 'days').format('MM-DD-YYYY').toString();
+      this.projectToAdd.projectStartDate = moment(new Date()).format('MM-DD-YYYY').toString();
+      this.projectToAdd.projectEndDate = moment(new Date()).add(1, 'days').format('MM-DD-YYYY').toString();
     } else {
-      this.projectToAdd.start_Date = null;
-      this.projectToAdd.end_Date = null;
+      this.projectToAdd.projectStartDate = null;
+      this.projectToAdd.projectEndDate = null;
     }
   }
   setMinEndDate($event) {
-    this.minEndDate = moment(this.projectToAdd.start_Date).add(1, 'days').toDate();
-    if (this.projectToAdd.end_Date <= this.projectToAdd.start_Date) {
-      this.projectToAdd.end_Date = moment(this.minEndDate).format('MM-DD-YYYY').toString();
+    this.minEndDate = moment(this.projectToAdd.projectStartDate).add(1, 'days').toDate();
+    if (this.projectToAdd.projectEndDate <= this.projectToAdd.projectStartDate) {
+      this.projectToAdd.projectEndDate = moment(this.minEndDate).format('MM-DD-YYYY').toString();
     }
   }
 
@@ -73,14 +85,14 @@ export class ProjectComponent implements OnInit {
     this.selectedIndexUser = index;
   }
   selectUser() {
-    this.projectToAdd.user_ID = +this.users[this.selectedIndexUser].user_ID;
-    this.selectedUser = this.users[this.selectedIndexUser].first_Name;
+    this.projectToAdd.user.userId = +this.users[this.selectedIndexUser].userId;
+    this.selectedUser = this.users[this.selectedIndexUser].firstName;
     this.selectedIndexUser = null;
     this.modalRef.hide();
   }
 
   addProject() {
-    if (!this.projectToAdd.project1 || this.projectToAdd.project1 === '') {
+    if (!this.projectToAdd.projectName || this.projectToAdd.projectName === '') {
       this.eventService.showWarning('Please add project name ');
       return;
     }
@@ -88,15 +100,15 @@ export class ProjectComponent implements OnInit {
       this.eventService.showWarning('Please set priority ');
       return;
     }
-    if (this.startEndDateEnable && (!this.projectToAdd.start_Date || this.projectToAdd.start_Date.toString() === '')) {
+    if (this.startEndDateEnable && (!this.projectToAdd.projectStartDate || this.projectToAdd.projectStartDate.toString() === '')) {
       this.eventService.showWarning('Please select start date ');
       return;
     }
-    if (this.startEndDateEnable && (!this.projectToAdd.end_Date || this.projectToAdd.end_Date.toString() === '')) {
+    if (this.startEndDateEnable && (!this.projectToAdd.projectEndDate || this.projectToAdd.projectEndDate.toString() === '')) {
       this.eventService.showWarning('Please select end date ');
       return;
     }
-    if (!this.projectToAdd.user_ID || this.projectToAdd.user_ID.toString() === '') {
+    if (!this.projectToAdd.user.userId || this.projectToAdd.user.userId.toString() === '') {
       this.eventService.showWarning('Please select userId ');
       return;
     }
@@ -104,6 +116,7 @@ export class ProjectComponent implements OnInit {
     this.projectService.addProject(this.projectToAdd).subscribe((data) => {
       this.eventService.showSuccess('Saved successfully');
       this.resetProject();
+      this.ngOnInit();
       this.eventService.showLoading(false);
     },
       (error) => {
@@ -113,6 +126,10 @@ export class ProjectComponent implements OnInit {
   }
   resetProject() {
     this.projectToAdd = new Project();
+    this.buttonName = 'Add';
+    this.projectToAdd.priority = 0;
+    this.minStartDate = new Date();
+    this.minEndDate = new Date();
     this.selectedUser = null;
     this.selectedIndexUser = null;
   }

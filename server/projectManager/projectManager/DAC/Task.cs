@@ -7,22 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace projectManager
+namespace projectManager.DAC
 {
     using System;
     using System.Collections.Generic;
     
     public partial class Task
     {
-        public string Task_ID { get; set; }
-        public string Parent_ID { get; set; }
+        public int Task_ID { get; set; }
+        public Nullable<int> Parent_ID { get; set; }
+        public Nullable<int> Project_ID { get; set; }
+        public string Task_Name { get; set; }
         public Nullable<System.DateTime> Start_Date { get; set; }
         public Nullable<System.DateTime> End_Date { get; set; }
-        public string Project_ID { get; set; }
-        public string Task1 { get; set; }
-        public string Priority { get; set; }
-        public string Status { get; set; }
-    
-        public virtual Parent_Task Parent_Task { get; set; }
+        public Nullable<int> Priority { get; set; }
+        public int Status { get; set; }
     }
 }

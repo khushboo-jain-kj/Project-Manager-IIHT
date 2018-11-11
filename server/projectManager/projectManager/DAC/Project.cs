@@ -7,26 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace projectManager
+namespace projectManager.DAC
 {
     using System;
     using System.Collections.Generic;
     
     public partial class Project
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Project()
-        {
-            this.Users = new HashSet<User>();
-        }
-    
-        public string Project_ID { get; set; }
-        public string Project1 { get; set; }
+        public int Project_ID { get; set; }
+        public string Project_Name { get; set; }
         public Nullable<System.DateTime> Start_Date { get; set; }
         public Nullable<System.DateTime> End_Date { get; set; }
-        public string Priority { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public Nullable<int> Priority { get; set; }
     }
 }

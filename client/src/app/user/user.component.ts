@@ -12,6 +12,9 @@ export class UserComponent implements OnInit {
   users: Array<User>;
   userToAdd: User;
   buttonName: string;
+  isFirstNameAsc: any;
+  isLastNameAsc: any;
+  isEmpIdAsc: any;
 
   constructor(private userService: UserService, private eventService: EventService) {
     this.users = new Array<User>();
@@ -32,20 +35,20 @@ export class UserComponent implements OnInit {
       });
   }
 
-  addUser(){
-    if (!this.userToAdd.first_Name || this.userToAdd.first_Name === '') {
+  addUser() {
+    if (!this.userToAdd.firstName || this.userToAdd.firstName === '') {
       this.eventService.showWarning('Please add first Name ');
       return;
     }
-    if (!this.userToAdd.last_Name || this.userToAdd.last_Name === '') {
+    if (!this.userToAdd.lastName || this.userToAdd.lastName === '') {
       this.eventService.showWarning('Please add last Name ');
       return;
     }
-    if (!this.userToAdd.employee_ID || this.userToAdd.employee_ID === '') {
+    if (!this.userToAdd.employeeId || this.userToAdd.employeeId === '') {
       this.eventService.showWarning('Please enter employee id');
       return;
     }
-    if (this.buttonName==='Add') {
+    if (this.buttonName === 'Add') {
       this.eventService.showLoading(true);
       this.userService.addUser(this.userToAdd).subscribe((data) => {
         this.eventService.showSuccess('Saved successfully')
@@ -57,7 +60,7 @@ export class UserComponent implements OnInit {
           this.eventService.showLoading(false);
         });
     }
-    if (this.buttonName==='Update') {
+    if (this.buttonName === 'Update') {
       this.eventService.showLoading(true);
       this.userService.updateUser(this.userToAdd).subscribe((data) => {
         this.eventService.showSuccess('Update successfully')
@@ -96,13 +99,22 @@ export class UserComponent implements OnInit {
 
   sortUser(type: number) {
     if (type === 1) {
-      this.users.sort((a, b) => (a.first_Name > b.first_Name) ? 1 : ((b.first_Name > a.first_Name) ? -1 : 0));
+      this.isFirstNameAsc = !this.isFirstNameAsc;
+      const direction = this.isFirstNameAsc ? 1 : -1;
+      this.users.sort((a, b) => (a.firstName > b.firstName) ? 1 * direction
+        : ((b.firstName > a.firstName) ? -1 * direction : 0));
     }
     if (type === 2) {
-      this.users.sort((a, b) => (a.last_Name > b.last_Name) ? 1 : ((b.last_Name > a.last_Name) ? -1 : 0));
+      this.isLastNameAsc = !this.isLastNameAsc;
+      const direction = this.isLastNameAsc ? 1 : -1;
+      this.users.sort((a, b) => (a.lastName > b.lastName) ? 1 * direction :
+        ((b.lastName > a.lastName) ? -1 * direction : 0));
     }
     if (type === 3) {
-      this.users.sort((a, b) => (a.employee_ID > b.employee_ID) ? 1 : ((b.employee_ID > a.employee_ID) ? -1 : 0));
+      this.isEmpIdAsc = !this.isEmpIdAsc;
+      const direction = this.isEmpIdAsc ? 1 : -1;
+      this.users.sort((a, b) => (a.employeeId > b.employeeId) ? 1 * direction :
+        ((b.employeeId > a.employeeId) ? -1 * direction : 0));
     }
     this.users = [...this.users];
   }
