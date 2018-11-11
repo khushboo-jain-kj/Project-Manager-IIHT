@@ -11,5 +11,6 @@ namespace ProjectManager.Models
         public string LastName { get; set; }
         public string EmployeeId { get; set; }
         public int UserId { get; set; }
+        public int ProjectId { get; set; }
     }
 }

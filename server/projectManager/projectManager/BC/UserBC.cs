@@ -46,7 +46,7 @@ namespace ProjectManager.BC
             using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
             {
                 var editDetails = (from editUser in dbContext.Users
-                                   where editUser.User_ID.ToString().Contains(user.UserId.ToString())
+                                   where editUser.User_ID==user.UserId
                                    select editUser).First();
                 // Modify existing records
                 if (editDetails != null)
@@ -66,7 +66,7 @@ namespace ProjectManager.BC
             using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
             {
                 var editDetails = (from editUser in dbContext.Users
-                                   where editUser.User_ID.ToString().Contains(user.UserId.ToString())
+                                   where editUser.User_ID==user.UserId
                                    select editUser).First();
                 // Delete existing record
                 if (editDetails != null)

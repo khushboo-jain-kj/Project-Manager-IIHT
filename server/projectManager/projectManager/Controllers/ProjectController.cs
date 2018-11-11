@@ -47,5 +47,31 @@ namespace ProjectManager.Controllers
         }
 
 
+        [HttpPost]
+        [Route("api/project/update")]
+        [ProjectManagerLogFilter]
+        [ProjectManagerExceptionFilter]
+        public JSendResponse UpdateProjectDetails(Project project)
+        {
+            projObjBC = new ProjectBC();
+
+            return new JSendResponse()
+            {
+                Data = projObjBC.UpdateProjectDetails(project)
+            };
+        }
+
+        [HttpPost]
+        [Route("api/project/delete")]
+        public JSendResponse DeleteProjectDetails(Project project)
+        {
+            projObjBC = new ProjectBC();
+
+            return new JSendResponse()
+            {
+                Data = projObjBC.DeleteProjectDetails(project)
+            };
+        }
+
     }
 }

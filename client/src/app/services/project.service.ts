@@ -27,4 +27,22 @@ export class ProjectService extends BaseService {
             }))
             .pipe(catchError(this.handleError));
     }
+
+    updateProject(project:Project): Observable<any> {
+        return this.http.post(super.baseurl() + 'api/project/update',project)
+            .pipe(map((res: Response) => {
+                const data = super.extractData(res);
+                return data;
+            }))
+            .pipe(catchError(this.handleError));
+    }
+
+    deleteProject(project:Project): Observable<any> {
+        return this.http.post(super.baseurl() + 'api/project/delete',project)
+            .pipe(map((res: Response) => {
+                const data = super.extractData(res);
+                return data;
+            }))
+            .pipe(catchError(this.handleError));
+    }
 }   

@@ -79,15 +79,15 @@
       <ul class="list-group">
         <li class="list-group-item">Project: {{project.projectName}}</li>
         <li class="list-group-item">No fo Tasks:{{project.noOfTasks}} Completed: {{project.noOfCompletedTasks}}</li>
-        <li class="list-group-item">Start Date:{{project.projectStartDate|date:'longDate'}} End Date:{{project.projectEndDate|date:'longDate'}}</li>
+        <li class="list-group-item">Start Date:{{project.projectStartDate|date:'MM-dd-yyyy'}} End Date:{{project.projectEndDate|date:'MM-dd-yyyy'}}</li>
       </ul>
       <div style="display:inline-block">
         <label>Priority</label>
         <span>{{project.priority}}</span>
       </div>
       <div class="view-buttons">
-        <button class="btn btn-primary" (click)="editUser(project)">Update</button>
-        <button class="btn btn-danger" (click)="deleteUser(project)">Suspend</button>
+        <button class="btn btn-primary" (click)="editProject(project)">Update</button>
+        <button class="btn btn-danger" (click)="deleteProject(project)">Suspend</button>
       </div>
     </div>
   </div>

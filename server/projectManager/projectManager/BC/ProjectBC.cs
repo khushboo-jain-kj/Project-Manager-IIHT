@@ -40,7 +40,7 @@ namespace ProjectManager.BC
                     Priority = project.Priority
                 };
                 dbContext.Projects.Add(proj);
-               dbContext.SaveChanges();
+                dbContext.SaveChanges();
                 var editDetails = (from editUser in dbContext.Users
                                    where editUser.User_ID.ToString().Contains(project.User.UserId.ToString())
                                    select editUser).First();
@@ -51,6 +51,70 @@ namespace ProjectManager.BC
                 }
                 return dbContext.SaveChanges();
             }
+        }
+
+        public int UpdateProjectDetails(MODEL.Project project)
+        {
+            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            {
+                var editProjDetails = (from editProject in dbContext.Projects
+                                   where editProject.Project_ID.ToString().Contains(project.ProjectId.ToString())
+                                   select editProject).First();
+                // Modify existing records
+                if (editProjDetails != null)
+                {
+                    editProjDetails.Project_Name = project.ProjectName;
+                    editProjDetails.Start_Date = project.ProjectStartDate;
+                    editProjDetails.End_Date = project.ProjectEndDate;
+                    editProjDetails.Priority = project.Priority;
+                }
+
+                //set project id to null for previous users
+                var editUserDetails= (from editUser in dbContext.Users
+                                      where editUser.Project_ID==project.ProjectId
+                                      select editUser);
+                foreach(var user in editUserDetails)
+                {
+                    user.Project_ID = null;
+                }
+                // reset project id to the selected user
+
+                var editDetails = (from editUser in dbContext.Users
+                                   where editUser.User_ID.ToString().Contains(project.User.UserId.ToString())
+                                   select editUser).First();
+                // Modify existing records
+                if (editDetails != null)
+                {
+                    editDetails.Project_ID = project.ProjectId;
+                }
+                return dbContext.SaveChanges();
+            }
+
+        }
+        public int DeleteProjectDetails(MODEL.Project project)
+        {
+            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            {
+                //set project id to null for previous users
+                var editUserDetails = (from editUser in dbContext.Users
+                                       where editUser.Project_ID == project.ProjectId
+                                       select editUser);
+                foreach (var user in editUserDetails)
+                {
+                    user.Project_ID = null;
+                }
+
+                var editDetails = (from proj in dbContext.Projects
+                                   where proj.Project_ID==project.ProjectId
+                                   select proj).First();
+                // Delete existing record
+                if (editDetails != null)
+                {
+                    dbContext.Projects.Remove(editDetails);
+                }
+                return dbContext.SaveChanges();
+            }
+
         }
 
     }
