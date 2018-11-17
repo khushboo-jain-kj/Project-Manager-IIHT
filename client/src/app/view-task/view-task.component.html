@@ -12,10 +12,23 @@
         </div>
         <div class="col-sm-7 text-right" style="padding-right:0">
           <strong>Sort Task By :</strong>
-          <button class="btn btn-default" (click)="sortTask(1)" style="margin-left:10px;">Start Date</button>
-          <button class="btn btn-default" (click)="sortTask(2)" style="margin-left:15px;">End Date</button>
-          <button class="btn btn-default" (click)="sortTask(3)" style="margin-left:15px;">Priority</button>
-          <button class="btn btn-default" (click)="sortTask(4)" style="margin-left:15px;">Completed</button>
+          <button class="btn btn-default" (click)="sortTask(1)" style="margin-left:10px;">
+            Start Date
+            <span class="glyphicon" [ngClass]="{'glyphicon-arrow-up':isStartDateAsc===true,
+            'glyphicon-arrow-down':isStartDateAsc===false}"></span>
+          </button>
+          <button class="btn btn-default" (click)="sortTask(2)" style="margin-left:15px;">End Date
+              <span class="glyphicon" [ngClass]="{'glyphicon-arrow-up':isEndDateAsc===true,
+              'glyphicon-arrow-down':isEndDateAsc===false}"></span>
+          </button>
+          <button class="btn btn-default" (click)="sortTask(3)" style="margin-left:15px;">Priority
+              <span class="glyphicon" [ngClass]="{'glyphicon-arrow-up':isPriorityAsc===true,
+              'glyphicon-arrow-down':isPriorityAsc===false}"></span>
+          </button>
+          <button class="btn btn-default" (click)="sortTask(4)" style="margin-left:15px;">Completed
+              <span class="glyphicon" [ngClass]="{'glyphicon-arrow-up':isCompletedAsc===true,
+              'glyphicon-arrow-down':isCompletedAsc===false}"></span>
+          </button>
         </div>
       </div>
     </div>
@@ -39,15 +52,15 @@
         </thead>
         <tbody>
           <tr *ngFor="let task of tasks">
-          <td>{{task.task_Name}}</td>
-          <td>{{task.parentTaskName}}</td>
-          <td>{{task.priority}}</td>
-          <td>{{task.start_Date|date:'shortDate'}}</td>
-          <td>{{task.end_Date|date:'shortDate'}}</td>
-          <td>
-            <button class="btn btn-primary" (click)="editTask(task)">Edit</button>
-            <button class="btn btn-danger" style="margin-left:15px;" (click)="deleteTask(task)">End Task</button>
-          </td>
+            <td>{{task.task_Name}}</td>
+            <td>{{task.parentTaskName}}</td>
+            <td>{{task.priority}}</td>
+            <td>{{task.start_Date|date:'shortDate'}}</td>
+            <td>{{task.end_Date|date:'shortDate'}}</td>
+            <td>
+              <button *ngIf="task.status===0" class="btn btn-primary" (click)="editTask(task)">Edit</button>
+              <button *ngIf="task.status===0" class="btn btn-danger" style="margin-left:15px;" (click)="deleteTask(task)">End Task</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -70,7 +83,7 @@
       </div>
     </div>
     <div class="list-group">
-      <a class="list-group-item" [class.active]="selectedIndex === i" *ngFor="let proj of projects|filteruser:{project1:searchText}; let i = index"
+      <a class="list-group-item" [class.active]="selectedIndex === i" *ngFor="let proj of projects|filteruser:{projectName:searchText}; let i = index"
         (click)="setIndex(i)">{{proj.projectName}}</a>
     </div>
   </div>

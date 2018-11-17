@@ -51,6 +51,7 @@ export class AddTaskComponent implements OnInit {
       this.taskToAdd.end_Date = this.taskToAdd.end_Date ? moment(this.taskToAdd.end_Date).format('MM-DD-YYYY').toString() :
         moment(new Date()).add(1, 'days').format('MM-DD-YYYY').toString();
       this.selectedParentTask = this.taskToAdd.parentTaskName;
+      this.selectedUser = this.taskToAdd.user.firstName;
     }
     else {
       this.taskToAdd = new Task();
@@ -60,8 +61,8 @@ export class AddTaskComponent implements OnInit {
       this.minStartDate = new Date();
       this.minEndDate = new Date();
       this.minEndDate.setDate(this.minStartDate.getDate() + 1);
-      this.taskToAdd.start_Date = moment(new Date()).toString();
-      this.taskToAdd.end_Date = moment(new Date()).add(1, 'days').toString();
+      this.taskToAdd.start_Date = moment(new Date()).format('MM-DD-YYYY').toString();
+      this.taskToAdd.end_Date = moment(new Date()).add(1, 'days').format('MM-DD-YYYY').toString();
 
       this.projects = new Array<Project>();
       this.users = new Array<User>();
@@ -120,7 +121,7 @@ export class AddTaskComponent implements OnInit {
         this.eventService.showLoading(false);
       });
     }
-     if(this.buttonName='Update'){
+     if(this.buttonName==='Update'){
       this.eventService.showLoading(true);
       this.taskService.updateTask(this.taskToAdd).subscribe((data) => {
         this.eventService.showSuccess('Saved successfully');
@@ -188,8 +189,8 @@ export class AddTaskComponent implements OnInit {
     this.minStartDate = new Date();
     this.minEndDate = new Date();
     this.minEndDate.setDate(this.minStartDate.getDate() + 1);
-    this.taskToAdd.start_Date = moment(new Date()).toString();
-    this.taskToAdd.end_Date = moment(new Date()).add(1, 'days').toString();
+    this.taskToAdd.start_Date = moment(new Date()).format('MM-DD-YYYY').toString();
+    this.taskToAdd.end_Date = moment(new Date()).add(1, 'days').format('MM-DD-YYYY').toString();
     this.hasParentTask = undefined;
     this.selectedUser = null;
     this.selectedIndexUser = null;
@@ -243,8 +244,10 @@ export class AddTaskComponent implements OnInit {
       this.taskToAdd.end_Date = null;
       this.taskToAdd.user.userId = null;
     } else {
-      this.taskToAdd.start_Date = moment(new Date()).toString();
-      this.taskToAdd.end_Date = moment(new Date()).add(1, 'days').toString();
+      this.taskToAdd.start_Date = this.taskToAdd.start_Date ?
+      moment(this.taskToAdd.start_Date).format('MM-DD-YYYY').toString() : moment(new Date()).format('MM-DD-YYYY').toString();
+    this.taskToAdd.end_Date = this.taskToAdd.end_Date ? moment(this.taskToAdd.end_Date).format('MM-DD-YYYY').toString() :
+      moment(new Date()).add(1, 'days').format('MM-DD-YYYY').toString();
 
     }
   }

@@ -120,7 +120,10 @@ export class ProjectComponent implements OnInit {
       this.eventService.showWarning('Please select userId ');
       return;
     }
-
+    if (!this.startEndDateEnable) {
+      this.projectToAdd.projectStartDate = null;
+      this.projectToAdd.projectEndDate = null;
+    }
     if (this.buttonName === 'Add') {
       this.eventService.showLoading(true);
       this.projectService.addProject(this.projectToAdd).subscribe((data) => {
@@ -208,7 +211,7 @@ export class ProjectComponent implements OnInit {
     if (type === 4) {
       this.isCompletedAsc = !this.isCompletedAsc;
       const direction = this.isCompletedAsc ? 1 : -1;
-      this.projects.sort((a, b) => (a.noOfCompletedTasks> b.noOfCompletedTasks) ? 1 * direction :
+      this.projects.sort((a, b) => (a.noOfCompletedTasks > b.noOfCompletedTasks) ? 1 * direction :
         ((b.noOfCompletedTasks > a.noOfCompletedTasks) ? -1 * direction : 0));
     }
     this.projects = [...this.projects];

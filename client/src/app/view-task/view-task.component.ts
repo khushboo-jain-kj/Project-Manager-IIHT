@@ -23,6 +23,10 @@ export class ViewTaskComponent implements OnInit {
   selectedProjName: string;
   tasks: Array<Task> = [];
   taskSearch: boolean;
+  isStartDateAsc: boolean;
+  isEndDateAsc: boolean;
+  isPriorityAsc: boolean;
+  isCompletedAsc: boolean;
 
   constructor(private eventService: EventService, private projectService: ProjectService,
     private taskService: TaskService, private modalService: BsModalService, private router: Router) {
@@ -61,7 +65,6 @@ export class ViewTaskComponent implements OnInit {
         this.eventService.showError(error);
         this.eventService.showLoading(false);
       });
-    this.selectedIndex = null;
     this.modalRef.hide();
 
   }
@@ -81,5 +84,33 @@ export class ViewTaskComponent implements OnInit {
         this.eventService.showError(error);
         this.eventService.showLoading(false);
       });
+  }
+
+  sortTask(type: number) {
+    if (type === 1) {
+      this.isStartDateAsc = !this.isStartDateAsc;
+      const direction = this.isStartDateAsc ? 1 : -1;
+      this.tasks.sort((a, b) => (a.start_Date > b.start_Date) ? 1 * direction
+        : ((b.start_Date > a.start_Date) ? -1 * direction : 0));
+    }
+    if (type === 2) {
+      this.isEndDateAsc = !this.isEndDateAsc;
+      const direction = this.isEndDateAsc ? 1 : -1;
+      this.tasks.sort((a, b) => (a.end_Date > b.end_Date) ? 1 * direction :
+        ((b.end_Date > a.end_Date) ? -1 * direction : 0));
+    }
+    if (type === 3) {
+      this.isPriorityAsc = !this.isPriorityAsc;
+      const direction = this.isPriorityAsc ? 1 : -1;
+      this.tasks.sort((a, b) => (a.priority > b.priority) ? 1 * direction :
+        ((b.priority > a.priority) ? -1 * direction : 0));
+    }
+    if (type === 4) {
+      this.isCompletedAsc = !this.isCompletedAsc;
+      const direction = this.isCompletedAsc ? 1 : -1;
+      this.tasks.sort((a, b) => (a.status> b.status) ? 1 * direction :
+        ((b.status > a.status) ? -1 * direction : 0));
+    }
+    this.tasks = [...this.tasks];
   }
 }

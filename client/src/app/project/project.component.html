@@ -89,16 +89,33 @@
     </div>
     <div class="flex-container" *ngFor="let project of projects|filteruser:{projectName:searchText,projectStartDate:searchText,projectEndDate:searchText}">
       <ul class="list-group">
-        <li class="list-group-item">Project: {{project.projectName}}</li>
-        <li class="list-group-item">No fo Tasks:{{project.noOfTasks}} Completed: {{project.noOfCompletedTasks}}</li>
-        <li class="list-group-item">Start Date:{{project.projectStartDate|date:'MM-dd-yyyy'}} End Date:{{project.projectEndDate|date:'MM-dd-yyyy'}}</li>
+        <li class="list-group-item">Project:
+          <strong>{{project.projectName}}</strong>
+        </li>
+        <li class="list-group-item">
+          <span>No fo Tasks:
+            <strong>{{project.noOfTasks}} </strong>
+          </span>
+          <span class="pull-right"> Completed:
+            <strong>
+              {{project.noOfCompletedTasks}} </strong>
+          </span>
+        </li>
+        <li class="list-group-item" *ngIf="project.projectStartDate ||project.projectEndDate">
+          <span *ngIf="project.projectStartDate">Start Date:
+          <strong>{{project.projectStartDate|date:'MM-dd-yyyy'}}</strong>
+        </span>
+          <span class="pull-right" *ngIf="project.projectEndDate"> End Date:
+          <strong>{{project.projectEndDate|date:'MM-dd-yyyy'}}</strong>
+        </span>
+        </li>
       </ul>
       <div style="display:inline-block; margin-left:15px;">
         <div style="padding:10px 0">Priority</div>
         <label style="padding:10px 0">{{project.priority}}</label>
       </div>
       <div class="view-buttons">
-        <button class="btn btn-primary" (click)="editProject(project)">Update</button>
+        <button class="btn btn-primary" (click)="editProject(project)">Edit</button>
         <button class="btn btn-danger" (click)="deleteProject(project)">Suspend</button>
       </div>
     </div>
@@ -119,8 +136,7 @@
     </div>
     <div class="list-group">
       <a class="list-group-item" [class.active]="selectedIndexUser === i" *ngFor="let user of users|filteruser:{firstName:searchTextUser
-        ,lastName:searchTextUser}; let i = index"
-        (click)="setIndex(i)">{{user.firstName+' ' +user.lastName}}</a>
+        ,lastName:searchTextUser}; let i = index" (click)="setIndex(i)">{{user.firstName+' ' +user.lastName}}</a>
     </div>
   </div>
   <div class="modal-footer text-right">
