@@ -15,7 +15,7 @@ namespace ProjectManager.BC
         {
             using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
             {
-                return dbContext.Tasks.Select(x => new MODEL.Task()
+                return dbContext.Tasks.Where(z => z.Project_ID == projectId).Select(x => new MODEL.Task()
                 {
                     TaskId = x.Task_ID,
                     Task_Name = x.Task_Name,
@@ -29,7 +29,7 @@ namespace ProjectManager.BC
                         UserId = z.User_ID,
                         FirstName = z.First_Name
                     }).FirstOrDefault(),
-                }).Where(z => z.Status == 0).ToList();
+                }).ToList();
             }
 
         }
@@ -105,12 +105,18 @@ namespace ProjectManager.BC
                     editDetails.Priority = task.Priority;
 
                 }
+                var editDetailsUser = (from editUser in dbContext.Users
+                                   where editUser.User_ID.ToString().Contains(task.User.UserId.ToString())
+                                   select editUser).First();
+                // Modify existing records
+                if (editDetailsUser != null)
+                {
+                    editDetails.Task_ID = task.TaskId;
+                }
                 return dbContext.SaveChanges();
             }
 
         }
-
-
 
         public int DeleteTaskDetails(MODEL.Task task)
         {
