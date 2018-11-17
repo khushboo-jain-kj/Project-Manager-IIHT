@@ -68,10 +68,22 @@
         </div>
         <div class="col-sm-9 text-right" style="padding-right:0">
           <strong>Sort By:</strong>
-          <button class="btn btn-default" (click)="sortProject(1)" style="margin-left:10px;">Start Date</button>
-          <button class="btn btn-default" (click)="sortProject(2)" style="margin-left:15px;">End Date</button>
-          <button class="btn btn-default" (click)="sortProject(3)" style="margin-left:15px;">Priority</button>
-          <button class="btn btn-default" (click)="sortProject(4)" style="margin-left:15px;">Completed</button>
+          <button class="btn btn-default" (click)="sortProject(1)" style="margin-left:10px;">Start Date
+            <span class="glyphicon" [ngClass]="{'glyphicon-arrow-up':isStartDateAsc===true,
+            'glyphicon-arrow-down':isStartDateAsc===false}"></span>
+          </button>
+          <button class="btn btn-default" (click)="sortProject(2)" style="margin-left:15px;">End Date
+            <span class="glyphicon" [ngClass]="{'glyphicon-arrow-up':isEndDateAsc===true,
+            'glyphicon-arrow-down':isEndDateAsc===false}"></span>
+          </button>
+          <button class="btn btn-default" (click)="sortProject(3)" style="margin-left:15px;">Priority
+            <span class="glyphicon" [ngClass]="{'glyphicon-arrow-up':isPriorityAsc===true,
+            'glyphicon-arrow-down':isPriorityAsc===false}"></span>
+          </button>
+          <button class="btn btn-default" (click)="sortProject(4)" style="margin-left:15px;">Completed
+            <span class="glyphicon" [ngClass]="{'glyphicon-arrow-up':isCompletedAsc===true,
+            'glyphicon-arrow-down':isCompletedAsc===false}"></span>
+          </button>
         </div>
       </div>
     </div>
@@ -81,9 +93,9 @@
         <li class="list-group-item">No fo Tasks:{{project.noOfTasks}} Completed: {{project.noOfCompletedTasks}}</li>
         <li class="list-group-item">Start Date:{{project.projectStartDate|date:'MM-dd-yyyy'}} End Date:{{project.projectEndDate|date:'MM-dd-yyyy'}}</li>
       </ul>
-      <div style="display:inline-block">
-        <label>Priority</label>
-        <span>{{project.priority}}</span>
+      <div style="display:inline-block; margin-left:15px;">
+        <div style="padding:10px 0">Priority</div>
+        <label style="padding:10px 0">{{project.priority}}</label>
       </div>
       <div class="view-buttons">
         <button class="btn btn-primary" (click)="editProject(project)">Update</button>

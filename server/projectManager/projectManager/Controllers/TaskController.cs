@@ -15,10 +15,10 @@ namespace ProjectManager.Controllers
         [Route("api/task")]
         [ProjectManagerLogFilter]
         [ProjectManagerExceptionFilter]
-        public JSendResponse RetrieveTask()
+        public JSendResponse RetrieveTaskByProjectId(int projectId)
         {
             taskObj = new TaskBC();
-            List<Task> Tasks = taskObj.RetrieveTask();
+            List<Task> Tasks = taskObj.RetrieveTaskByProjectId(projectId);
 
             return new JSendResponse()
             {
@@ -27,25 +27,62 @@ namespace ProjectManager.Controllers
 
         }
 
-        //[HttpPost]
-        //[Route("api/task/insertTaskDetails")]
-        //public JSendResponse InsertTaskDetails(TaskDetails task)
-        //{
-        //    taskObj = new TaskBC();
+        [HttpGet]
+        [Route("api/task/parent")]
+        [ProjectManagerLogFilter]
+        [ProjectManagerExceptionFilter]
+        public JSendResponse RetrieveParentTasks()
+        {
+            taskObj = new TaskBC();
+            List<ParentTask> ParentTasks = taskObj.RetrieveParentTasks();
 
-        //    return taskObj.InsertTaskDetails(task);
+            return new JSendResponse()
+            {
+                Data = ParentTasks
+            };
 
-        //}
+        }
+        [HttpPost]
+        [ProjectManagerLogFilter]
+        [ProjectManagerExceptionFilter]
+        [Route("api/task/add")]
+        public JSendResponse InsertTaskDetails(Task task)
+        {
+            taskObj = new TaskBC();
 
-        //[HttpGet]
-        //[Route("api/task/parentTask")]
-        //public JSendResponse RetrieveParentTask()
-        //{
-        //    taskObj = new TaskBC();
+            return new JSendResponse()
+            {
+                Data = taskObj.InsertTaskDetails(task)
+            };
 
-        //    return taskObj.RetrieveParentTask();
+        }
 
-        //}
+        [HttpPost]
+        [ProjectManagerLogFilter]
+        [ProjectManagerExceptionFilter]
+        [Route("api/task/update")]
+        public JSendResponse UpdateTaskDetails(Task task)
+        {
+            taskObj = new TaskBC();
+
+            return new JSendResponse()
+            {
+                Data = taskObj.UpdateTaskDetails(task)
+            };
+
+        }
+        [HttpPost]
+        [ProjectManagerLogFilter]
+        [ProjectManagerExceptionFilter]
+        [Route("api/task/delete")]
+        public JSendResponse DeleteTaskDetails(Task task)
+        {
+            taskObj = new TaskBC();
+            return new JSendResponse()
+            {
+                Data = taskObj.DeleteTaskDetails(task)
+            };
+        }
 
 
     }

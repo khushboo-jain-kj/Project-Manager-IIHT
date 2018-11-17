@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { Task } from '../models/task';
 
 import { EventService } from '../services/event.service';
@@ -24,7 +25,7 @@ export class ViewTaskComponent implements OnInit {
   taskSearch: boolean;
 
   constructor(private eventService: EventService, private projectService: ProjectService,
-    private taskService: TaskService, private modalService: BsModalService) {
+    private taskService: TaskService, private modalService: BsModalService, private router: Router) {
     this.projects = new Array<Project>();
   }
 
@@ -63,5 +64,22 @@ export class ViewTaskComponent implements OnInit {
     this.selectedIndex = null;
     this.modalRef.hide();
 
+  }
+
+  editTask(task) {
+    this.router.navigate(['/addTask', { task: JSON.stringify(task) }]);
+  }
+
+  deleteTask(task) {
+    this.eventService.showLoading(true);
+    this.taskService.deleteTask(task).subscribe((data) => {
+      this.eventService.showSuccess('Task completed successfully')
+      this.selectProj();
+      this.eventService.showLoading(false);
+    },
+      (error) => {
+        this.eventService.showError(error);
+        this.eventService.showLoading(false);
+      });
   }
 }

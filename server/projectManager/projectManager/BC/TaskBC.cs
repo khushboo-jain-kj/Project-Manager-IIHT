@@ -11,86 +11,123 @@ namespace ProjectManager.BC
 {
     public class TaskBC
     {
-        public List<MODEL.Task> RetrieveTask()
+        public List<MODEL.Task> RetrieveTaskByProjectId(int projectId)
         {
             using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
             {
                 return dbContext.Tasks.Select(x => new MODEL.Task()
                 {
-                   
-                }).ToList();
+                    TaskId = x.Task_ID,
+                    Task_Name = x.Task_Name,
+                    ParentTaskName = dbContext.ParentTasks.Where(y => y.Parent_ID == x.Parent_ID).FirstOrDefault().Parent_Task_Name,
+                    Start_Date = x.Start_Date,
+                    End_Date = x.End_Date,
+                    Priority = x.Priority,
+                    Status = x.Status,
+                    User = dbContext.Users.Where(y => y.Task_ID == x.Task_ID).Select(z => new User()
+                    {
+                        UserId = z.User_ID,
+                        FirstName = z.First_Name
+                    }).FirstOrDefault(),
+                }).Where(z => z.Status == 0).ToList();
             }
 
         }
 
-        //public JSendResponse InsertTaskDetails(TaskDetails task)
-        //{
-        //    ProjectManager.DAC.ProjectManagerEntities tasksObj = new ProjectManager.DAC.ProjectManagerEntities();
-        //    if (task.Start_Date == null && task.End_Date == null && task.Task_Name == null)
-        //    {
-        //        tasksObj.Tasks.Add(new Task()
-        //        {
-        //            Project_ID = task.Project_ID,
-        //            Task_Name = task.Task_Name
-        //        });
+        public List<MODEL.ParentTask> RetrieveParentTasks()
+        {
+            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            {
+                return dbContext.ParentTasks.Select(x => new MODEL.ParentTask()
+                {
+                    ParentTaskId = x.Parent_ID,
+                    ParentTaskName = x.Parent_Task_Name
+                }).ToList();
+            }
+        }
 
-        //        tasksObj.ParentTasks.Add(new ParentTask()
-        //        {
-        //            Parent_Task_Name = task.Task_Name
-        //        });
-        //        // tasksObj.SaveChanges();
-        //        //tasksObj.Users.Add(new User()
-        //        //{
-        //        //    User_ID = task.User_ID
-        //        //});
-        //        tasksObj.SaveChanges();
 
-        //    }
-        //    else
-        //    {
-        //        tasksObj.Tasks.Add(new Task()
-        //        {
-        //            Project_ID = task.Project_ID,
-        //            Task_Name = task.Task_Name,
-        //            End_Date = task.End_Date,
-        //            Start_Date=task.Start_Date,
-        //            Parent_ID = task.Parent_ID,
-        //            Priority = task.Priority
+        public int InsertTaskDetails(MODEL.Task task)
+        {
+            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            {
 
-        //        });
-        //        int taskId;
-        //          taskId =  tasksObj.SaveChanges();
-        //        //var taskId = tasksObj.Tasks.Last().Task_ID;
-        //        taskId = tasksObj.Tasks.Max().Task_ID;
-        //        //tasksObj.Parent_Task.Add(new Parent_Task()
-        //        //{
-        //        //    Parent_Task_Name = task.Task_Name
-        //        //});
-        //        var userTaskDetails = (from users in tasksObj.Users
-        //                           where users.User_ID.ToString().Contains(task.User_ID.ToString())
-        //                           select users).First();
-        //        if (userTaskDetails != null)
-        //        {
-        //            userTaskDetails.Task_ID = task.Task_ID;
-        //        }
-        //            tasksObj.SaveChanges();
+                if (task.Priority == 0)
+                {
+                    dbContext.ParentTasks.Add(new DAC.ParentTask()
+                    {
+                        Parent_Task_Name = task.Task_Name
 
-        //    }
-        //    return new JSendResponse()
-        //    {
-        //        Data = 1
-        //    };
-        //}
+                    });
+                }
+                else
+                {
+                    DAC.Task taskDetail = new DAC.Task()
+                    {
+                        Task_Name = task.Task_Name,
+                        Project_ID = task.Project_ID,
+                        Start_Date = task.Start_Date,
+                        End_Date = task.End_Date,
+                        Parent_ID = task.Parent_ID,
+                        Priority = task.Priority,
+                        Status = task.Status
+                    };
+                    dbContext.Tasks.Add(taskDetail);
+                    dbContext.SaveChanges();
 
-        //public JSendResponse RetrieveParentTask()
-        //{
-        //    ProjectManager.DAC.ProjectManagerEntities tasksObj = new ProjectManager.DAC.ProjectManagerEntities();
+                    var editDetails = (from editUser in dbContext.Users
+                                       where editUser.User_ID.ToString().Contains(task.User.UserId.ToString())
+                                       select editUser).First();
+                    // Modify existing records
+                    if (editDetails != null)
+                    {
+                        editDetails.Task_ID = taskDetail.Task_ID;
+                    }
+                }
+                return dbContext.SaveChanges();
+            }
+        }
 
-        //    return new JSendResponse()
-        //    {
-        //        Data = tasksObj.ParentTasks.ToList()
-        //    };
-        //}
+        public int UpdateTaskDetails(MODEL.Task task)
+        {
+            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            {
+                var editDetails = (from editTask in dbContext.Tasks
+                                   where editTask.Task_ID.ToString().Contains(task.TaskId.ToString())
+                                   select editTask).First();
+                // Modify existing records
+                if (editDetails != null)
+                {
+                    editDetails.Task_Name = task.Task_Name;
+                    editDetails.Start_Date = task.Start_Date;
+                    editDetails.End_Date = task.End_Date;
+                    editDetails.Status = task.Status;
+                    editDetails.Priority = task.Priority;
+
+                }
+                return dbContext.SaveChanges();
+            }
+
+        }
+
+
+
+        public int DeleteTaskDetails(MODEL.Task task)
+        {
+            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            {
+                var deleteTask = (from editTask in dbContext.Tasks
+                                  where editTask.Task_ID.ToString().Contains(task.TaskId.ToString())
+                                  select editTask).First();
+                // Delete existing record
+                if (deleteTask != null)
+                {
+                    deleteTask.Status = 1;
+                }
+                return dbContext.SaveChanges();
+            }
+
+        }
 
 
     }

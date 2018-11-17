@@ -27,6 +27,10 @@ export class ProjectComponent implements OnInit {
   searchText: string;
   searchTextUser: string;
   projects: Array<Project>;
+  isStartDateAsc: boolean;
+  isEndDateAsc: boolean;
+  isPriorityAsc: boolean;
+  isCompletedAsc: boolean;
 
   constructor(private eventService: EventService, private projectService: ProjectService,
     private userService: UserService, private modalService: BsModalService) {
@@ -180,5 +184,33 @@ export class ProjectComponent implements OnInit {
         this.eventService.showError(error);
         this.eventService.showLoading(false);
       });
+  }
+
+  sortProject(type: number) {
+    if (type === 1) {
+      this.isStartDateAsc = !this.isStartDateAsc;
+      const direction = this.isStartDateAsc ? 1 : -1;
+      this.projects.sort((a, b) => (a.projectStartDate > b.projectStartDate) ? 1 * direction
+        : ((b.projectStartDate > a.projectStartDate) ? -1 * direction : 0));
+    }
+    if (type === 2) {
+      this.isEndDateAsc = !this.isEndDateAsc;
+      const direction = this.isEndDateAsc ? 1 : -1;
+      this.projects.sort((a, b) => (a.projectEndDate > b.projectEndDate) ? 1 * direction :
+        ((b.projectEndDate > a.projectEndDate) ? -1 * direction : 0));
+    }
+    if (type === 3) {
+      this.isPriorityAsc = !this.isPriorityAsc;
+      const direction = this.isPriorityAsc ? 1 : -1;
+      this.projects.sort((a, b) => (a.priority > b.priority) ? 1 * direction :
+        ((b.priority > a.priority) ? -1 * direction : 0));
+    }
+    if (type === 4) {
+      this.isCompletedAsc = !this.isCompletedAsc;
+      const direction = this.isCompletedAsc ? 1 : -1;
+      this.projects.sort((a, b) => (a.noOfCompletedTasks> b.noOfCompletedTasks) ? 1 * direction :
+        ((b.noOfCompletedTasks > a.noOfCompletedTasks) ? -1 * direction : 0));
+    }
+    this.projects = [...this.projects];
   }
 }

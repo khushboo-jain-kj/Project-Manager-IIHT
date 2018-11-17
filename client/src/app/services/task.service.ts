@@ -21,7 +21,7 @@ export class TaskService extends BaseService {
             .pipe(catchError(this.handleError));
     }
     addTask(task:Task): Observable<any> {
-        return this.http.get(super.baseurl() + 'api/task/add')
+        return this.http.post(super.baseurl() + 'api/task/add',task)
             .pipe(map((res: Response) => {
                 const data = super.extractData(res);
                 return data;
@@ -30,11 +30,29 @@ export class TaskService extends BaseService {
     }
 
     getAllTasksByProjectId(projectId:number):Observable<Task[]>{
-        return this.http.get(super.baseurl() + 'api/task/'+projectId)
+        return this.http.get(super.baseurl() + 'api/task?projectId='+projectId)
         .pipe(map((res: Response) => {
             const data = super.extractData(res);
             return data;
         }))
         .pipe(catchError(this.handleError));
+    }
+
+    updateTask(task:Task): Observable<any> {
+        return this.http.post(super.baseurl() + 'api/task/update',task)
+            .pipe(map((res: Response) => {
+                const data = super.extractData(res);
+                return data;
+            }))
+            .pipe(catchError(this.handleError));
+    }
+
+    deleteTask(task:Task): Observable<any> {
+        return this.http.post(super.baseurl() + 'api/task/delete',task)
+            .pipe(map((res: Response) => {
+                const data = super.extractData(res);
+                return data;
+            }))
+            .pipe(catchError(this.handleError));
     }
 }   

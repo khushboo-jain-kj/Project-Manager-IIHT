@@ -39,14 +39,14 @@
         </thead>
         <tbody>
           <tr *ngFor="let task of tasks">
-          <td>{{task.task}}</td>
-          <td>{{task.parent_ID}}</td>
+          <td>{{task.task_Name}}</td>
+          <td>{{task.parentTaskName}}</td>
           <td>{{task.priority}}</td>
-          <td>{{task.start_Date}}</td>
-          <td>{{task.end_Date}}</td>
+          <td>{{task.start_Date|date:'shortDate'}}</td>
+          <td>{{task.end_Date|date:'shortDate'}}</td>
           <td>
-            <button class="btn btn-primary">Edit</button>
-            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-primary" (click)="editTask(task)">Edit</button>
+            <button class="btn btn-danger" style="margin-left:15px;" (click)="deleteTask(task)">End Task</button>
           </td>
           </tr>
         </tbody>
@@ -71,7 +71,7 @@
     </div>
     <div class="list-group">
       <a class="list-group-item" [class.active]="selectedIndex === i" *ngFor="let proj of projects|filteruser:{project1:searchText}; let i = index"
-        (click)="setIndex(i)">{{proj.project1}}</a>
+        (click)="setIndex(i)">{{proj.projectName}}</a>
     </div>
   </div>
   <div class="modal-footer text-right">

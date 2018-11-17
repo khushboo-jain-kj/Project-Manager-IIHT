@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Task } from '../models/task';
 import { EventService } from '../services/event.service';
+import { ActivatedRoute } from '@angular/router';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
@@ -35,41 +36,60 @@ export class AddTaskComponent implements OnInit {
   searchText: string;
   minStartDate: Date;
   minEndDate: Date;
+  buttonName: string;
+  updateDisabled: boolean;
 
   constructor(private eventService: EventService, private projectService: ProjectService,
-    private userService: UserService, private taskService: TaskService, private modalService: BsModalService) {
-    this.projects = new Array<Project>();
-    this.users = new Array<User>();
-    this.parentTasks = new Array<ParentTask>();
+    private userService: UserService, private taskService: TaskService, private modalService: BsModalService, private route: ActivatedRoute) {
+
+    if (route.snapshot.params['task']) {
+      this.taskToAdd = JSON.parse(route.snapshot.params['task']);
+      this.buttonName = 'Update';
+      this.updateDisabled = true;
+      this.taskToAdd.start_Date = this.taskToAdd.start_Date ?
+        moment(this.taskToAdd.start_Date).format('MM-DD-YYYY').toString() : moment(new Date()).format('MM-DD-YYYY').toString();
+      this.taskToAdd.end_Date = this.taskToAdd.end_Date ? moment(this.taskToAdd.end_Date).format('MM-DD-YYYY').toString() :
+        moment(new Date()).add(1, 'days').format('MM-DD-YYYY').toString();
+      this.selectedParentTask = this.taskToAdd.parentTaskName;
+    }
+    else {
+      this.taskToAdd = new Task();
+      this.buttonName = 'Add';
+
+      this.taskToAdd.priority = 0;
+      this.minStartDate = new Date();
+      this.minEndDate = new Date();
+      this.minEndDate.setDate(this.minStartDate.getDate() + 1);
+      this.taskToAdd.start_Date = moment(new Date()).toString();
+      this.taskToAdd.end_Date = moment(new Date()).add(1, 'days').toString();
+
+      this.projects = new Array<Project>();
+      this.users = new Array<User>();
+      this.parentTasks = new Array<ParentTask>();
+    }
+    console.log(this.taskToAdd);
   }
 
   ngOnInit() {
-    this.taskToAdd = new Task();
-    this.taskToAdd.priority = '0';
-    this.minStartDate = new Date();
-    this.minEndDate = new Date();
-    this.minEndDate.setDate(this.minStartDate.getDate() + 1);
-    this.taskToAdd.start_Date = moment(new Date()).toDate();
-    this.taskToAdd.end_Date = moment(new Date()).add(1, 'days').toDate();
   }
 
   setMinEndDate($event) {
     this.minEndDate = moment(this.taskToAdd.start_Date).add(1, 'days').toDate();
-    if (this.taskToAdd.end_Date <= this.taskToAdd.start_Date) {
-      this.taskToAdd.end_Date = moment(this.minEndDate).toDate();
+    if (moment(this.taskToAdd.end_Date) <= moment(this.taskToAdd.start_Date)) {
+      this.taskToAdd.end_Date = moment(this.minEndDate).format('MM-DD-YYYY').toString();
     }
   }
 
   addTask() {
-    if (!this.taskToAdd.project_ID) {
+    if (!this.taskToAdd.project_ID && this.buttonName=='Add') {
       this.eventService.showWarning('Please select project ');
       return;
     }
-    if (!this.taskToAdd.task || this.taskToAdd.task === '') {
+    if (!this.taskToAdd.task_Name || this.taskToAdd.task_Name === '') {
       this.eventService.showWarning('Please add task name ');
       return;
     }
-    if (!this.hasParentTask && (!this.taskToAdd.priority || this.taskToAdd.priority === '0')) {
+    if (!this.hasParentTask && (!this.taskToAdd.priority || this.taskToAdd.priority === 0)) {
       this.eventService.showWarning('Please set priority ');
       return;
     }
@@ -81,10 +101,14 @@ export class AddTaskComponent implements OnInit {
       this.eventService.showWarning('Please select end date ');
       return;
     }
-    if (!this.hasParentTask && (!this.taskToAdd.user_ID || this.taskToAdd.user_ID.toString() === '')) {
+    if (!this.hasParentTask && (!this.taskToAdd.user.userId || this.taskToAdd.user.userId.toString() === '')) {
       this.eventService.showWarning('Please select userId ');
       return;
     }
+    if (this.hasParentTask) {
+      this.taskToAdd.priority = 0;
+    }
+    if(this.buttonName==='Add'){
     this.eventService.showLoading(true);
     this.taskService.addTask(this.taskToAdd).subscribe((data) => {
       this.eventService.showSuccess('Saved successfully');
@@ -95,6 +119,19 @@ export class AddTaskComponent implements OnInit {
         this.eventService.showError(error);
         this.eventService.showLoading(false);
       });
+    }
+     if(this.buttonName='Update'){
+      this.eventService.showLoading(true);
+      this.taskService.updateTask(this.taskToAdd).subscribe((data) => {
+        this.eventService.showSuccess('Saved successfully');
+        this.resetTask();
+        this.eventService.showLoading(false);
+      },
+        (error) => {
+          this.eventService.showError(error);
+          this.eventService.showLoading(false);
+        });
+    }
   }
 
   openModal(template: TemplateRef<any>, type: number) {
@@ -147,7 +184,20 @@ export class AddTaskComponent implements OnInit {
 
   resetTask() {
     this.taskToAdd = new Task();
+    this.taskToAdd.priority = 0;
+    this.minStartDate = new Date();
+    this.minEndDate = new Date();
+    this.minEndDate.setDate(this.minStartDate.getDate() + 1);
+    this.taskToAdd.start_Date = moment(new Date()).toString();
+    this.taskToAdd.end_Date = moment(new Date()).add(1, 'days').toString();
     this.hasParentTask = undefined;
+    this.selectedUser = null;
+    this.selectedIndexUser = null;
+    this.selectedIndexParent = null;
+    this.selectedParentTask = null;
+    this.selectedIndex = null;
+    this.selectedProjName = null;
+
   }
 
   setIndex(index: number, type: number) {
@@ -170,13 +220,13 @@ export class AddTaskComponent implements OnInit {
   }
 
   selectParentTask() {
-    this.taskToAdd.parent_ID = +this.parentTasks[this.selectedIndexParent].parent_ID;
-    this.selectedParentTask = this.parentTasks[this.selectedIndexParent].parent_Task1;
+    this.taskToAdd.parent_ID = +this.parentTasks[this.selectedIndexParent].parentTaskId;
+    this.selectedParentTask = this.parentTasks[this.selectedIndexParent].parentTaskName;
     this.selectedIndexParent = null;
     this.modalRef.hide();
   }
   selectUser() {
-    this.taskToAdd.user_ID = +this.users[this.selectedIndexUser].userId;
+    this.taskToAdd.user.userId = +this.users[this.selectedIndexUser].userId;
     this.selectedUser = this.users[this.selectedIndexUser].firstName;
     this.selectedIndexUser = null;
     this.modalRef.hide();
@@ -187,14 +237,14 @@ export class AddTaskComponent implements OnInit {
       this.selectedIndexParent = null;
       this.selectedParentTask = null;
       this.selectedUser = null;
-      this.taskToAdd.priority = '0';
+      this.taskToAdd.priority = 0;
       this.taskToAdd.parent_ID = null;
       this.taskToAdd.start_Date = null;
       this.taskToAdd.end_Date = null;
-      this.taskToAdd.user_ID = null;
+      this.taskToAdd.user.userId = null;
     } else {
-      this.taskToAdd.start_Date = moment(new Date()).toDate();
-      this.taskToAdd.end_Date = moment(new Date()).add(1, 'days').toDate();
+      this.taskToAdd.start_Date = moment(new Date()).toString();
+      this.taskToAdd.end_Date = moment(new Date()).add(1, 'days').toString();
 
     }
   }
