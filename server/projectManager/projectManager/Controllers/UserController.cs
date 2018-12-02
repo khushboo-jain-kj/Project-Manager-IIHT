@@ -6,15 +6,24 @@ using System.Web;
 using System.Web.Http;
 using ProjectManager.BC;
 using ProjectManager.ActionFilters;
-using projectManager.Models;
+using DAC = ProjectManager.DAC;
 
 namespace ProjectManager.Controllers
 {
 
     public class UserController : ApiController
     {
+        UserBC _userObjBC = null;
+        
+        public UserController()
+        {
+            _userObjBC = new UserBC();
+        }
 
-        UserBC userObjBC = null;
+        public UserController(UserBC userObjBC)
+        {
+            _userObjBC = userObjBC;
+        }
 
         [HttpGet]
         [ProjectManagerLogFilter]
@@ -22,15 +31,12 @@ namespace ProjectManager.Controllers
         [Route("api/user")]
         public JSendResponse GetUser()
         {
-            userObjBC = new UserBC();
-
-            List<User> Users = userObjBC.GetUser();
+            List<User> Users = _userObjBC.GetUser();
 
             return new JSendResponse()
             {
                 Data = Users
             };
-
         }
 
         [HttpPost]
@@ -39,11 +45,33 @@ namespace ProjectManager.Controllers
         [Route("api/user/add")]
         public JSendResponse InsertUserDetails(User user)
         {
-            userObjBC = new UserBC();
-
+            if (user == null)
+            {
+                throw new ArgumentNullException("User id is null");
+            }
+            try
+            {
+                int employeeId = Convert.ToInt32(user.EmployeeId);
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException("Invalid format of employee Id", ex);
+            }
+            if (Convert.ToInt32(user.EmployeeId) < 0)
+            {
+                throw new ArithmeticException("Employee id cannot be negative");
+            }
+            if (Convert.ToInt32(user.ProjectId) < 0)
+            {
+                throw new ArithmeticException("Project id cannot be negative");
+            }
+            if (user.UserId <= 0)
+            {
+                throw new ArithmeticException("User id cannot be negative or 0");
+            }
             return new JSendResponse()
             {
-                Data = userObjBC.InsertUserDetails(user)
+                Data = _userObjBC.InsertUserDetails(user)
             };
 
         }
@@ -54,11 +82,33 @@ namespace ProjectManager.Controllers
         [ProjectManagerExceptionFilter]
         public JSendResponse UpdateUserDetails(User user)
         {
-            userObjBC = new UserBC();
-
+            if (user == null)
+            {
+                throw new ArgumentNullException("User id is null");
+            }
+            try
+            {
+                int employeeId = Convert.ToInt32(user.EmployeeId);
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException("Invalid format of employee Id", ex);
+            }
+            if (Convert.ToInt32(user.EmployeeId) < 0)
+            {
+                throw new ArithmeticException("Employee id cannot be negative");
+            }
+            if (Convert.ToInt32(user.ProjectId) < 0)
+            {
+                throw new ArithmeticException("Project id cannot be negative");
+            }
+            if (user.UserId <= 0)
+            {
+                throw new ArithmeticException("User id cannot be negative or 0");
+            }
             return new JSendResponse()
             {
-                Data = userObjBC.UpdateUserDetails(user)
+                Data = _userObjBC.UpdateUserDetails(user)
             };
         }
 
@@ -66,10 +116,33 @@ namespace ProjectManager.Controllers
         [Route("api/user/delete")]
         public JSendResponse DeleteUserDetails(User user)
         {
-            userObjBC = new UserBC();
+            if (user == null)
+            {
+                throw new ArgumentNullException("User id is null");
+            }
+            try
+            {
+                int employeeId = Convert.ToInt32(user.EmployeeId);
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException("Invalid format of employee Id", ex);
+            }
+            if (Convert.ToInt32(user.EmployeeId) < 0)
+            {
+                throw new ArithmeticException("Employee id cannot be negative");
+            }
+            if (Convert.ToInt32(user.ProjectId) < 0)
+            {
+                throw new ArithmeticException("Project id cannot be negative");
+            }
+            if(user.UserId <= 0)
+            {
+                throw new ArithmeticException("User id cannot be negative or 0");
+            }
             return new JSendResponse()
             {
-                Data = userObjBC.DeleteUserDetails(user)
+                Data = _userObjBC.DeleteUserDetails(user)
             };
         }
     }

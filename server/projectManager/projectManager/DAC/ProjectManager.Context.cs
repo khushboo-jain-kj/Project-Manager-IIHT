@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace projectManager.DAC
+namespace ProjectManager.DAC
 {
     using System;
     using System.Data.Entity;

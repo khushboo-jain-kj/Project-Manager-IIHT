@@ -2,19 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
 using MODEL = ProjectManager.Models;
-using DAC = projectManager.DAC;
+using DAC = ProjectManager.DAC;
+using ProjectManager.DAC;
 
 namespace ProjectManager.BC
 {
     public class UserBC
     {
+        DAC.ProjectManagerEntities dbContext = null;
 
+        public UserBC()
+        {
+            dbContext = new DAC.ProjectManagerEntities();
+        }
+
+        public UserBC(DAC.ProjectManagerEntities context)
+        {
+           dbContext = context;
+        }
         public List<MODEL.User> GetUser()
         {
-
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
                 return dbContext.Users.Select(x => new MODEL.User()
                 {
@@ -29,7 +38,7 @@ namespace ProjectManager.BC
 
         public int InsertUserDetails(MODEL.User user)
         {
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
                 dbContext.Users.Add(new DAC.User()
                 {
@@ -43,7 +52,7 @@ namespace ProjectManager.BC
 
         public int UpdateUserDetails(MODEL.User user)
         {
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
                 var editDetails = (from editUser in dbContext.Users
                                    where editUser.User_ID==user.UserId
@@ -63,7 +72,7 @@ namespace ProjectManager.BC
 
         public int DeleteUserDetails(MODEL.User user)
         {
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
                 var editDetails = (from editUser in dbContext.Users
                                    where editUser.User_ID==user.UserId

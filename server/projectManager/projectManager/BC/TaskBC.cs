@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ProjectManager.Models;
-
-using MODEL = projectManager.Models;
-using DAC = projectManager.DAC;
+using DAC = ProjectManager.DAC;
 
 namespace ProjectManager.BC
 {
     public class TaskBC
     {
-        public List<MODEL.Task> RetrieveTaskByProjectId(int projectId)
+        public List<Task> RetrieveTaskByProjectId(int projectId)
         {
             using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
             {
-                return dbContext.Tasks.Where(z => z.Project_ID == projectId).Select(x => new MODEL.Task()
+                return dbContext.Tasks.Where(z => z.Project_ID == projectId).Select(x => new Task()
                 {
                     TaskId = x.Task_ID,
                     Task_Name = x.Task_Name,
@@ -34,11 +32,11 @@ namespace ProjectManager.BC
 
         }
 
-        public List<MODEL.ParentTask> RetrieveParentTasks()
+        public List<ParentTask> RetrieveParentTasks()
         {
             using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
             {
-                return dbContext.ParentTasks.Select(x => new MODEL.ParentTask()
+                return dbContext.ParentTasks.Select(x => new ParentTask()
                 {
                     ParentTaskId = x.Parent_ID,
                     ParentTaskName = x.Parent_Task_Name
@@ -47,7 +45,7 @@ namespace ProjectManager.BC
         }
 
 
-        public int InsertTaskDetails(MODEL.Task task)
+        public int InsertTaskDetails(Task task)
         {
             using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
             {
@@ -88,7 +86,7 @@ namespace ProjectManager.BC
             }
         }
 
-        public int UpdateTaskDetails(MODEL.Task task)
+        public int UpdateTaskDetails(Task task)
         {
             using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
             {
@@ -118,7 +116,7 @@ namespace ProjectManager.BC
 
         }
 
-        public int DeleteTaskDetails(MODEL.Task task)
+        public int DeleteTaskDetails(Task task)
         {
             using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
             {

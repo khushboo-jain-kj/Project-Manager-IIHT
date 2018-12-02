@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace projectManager.Models
+namespace ProjectManager.Models
 {
     public class Task
     {

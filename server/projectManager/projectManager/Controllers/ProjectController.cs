@@ -6,7 +6,6 @@ using ProjectManager.Models;
 using ProjectManager.BC;
 using System.Web.Http;
 using ProjectManager.ActionFilters;
-using projectManager.Models;
 
 namespace ProjectManager.Controllers
 {
@@ -14,14 +13,22 @@ namespace ProjectManager.Controllers
     {
         ProjectBC projObjBC = null;
 
+        public ProjectController()
+        {
+            projObjBC = new ProjectBC();
+        }
+
+        public ProjectController(ProjectBC projectBc)
+        {
+            projObjBC = projectBc;
+        }
+
         [HttpGet]
         [ProjectManagerLogFilter]
         [ProjectManagerExceptionFilter]
         [Route("api/project")]
         public JSendResponse RetrieveProjects()
         {
-            projObjBC = new ProjectBC();
-
             List<Project> Projects = projObjBC.RetrieveProjects();
 
             return new JSendResponse()
@@ -37,8 +44,6 @@ namespace ProjectManager.Controllers
         [Route("api/project/add")]
         public JSendResponse InsertProjectDetails(Project project)
         {
-            projObjBC = new ProjectBC();
-
             return new JSendResponse()
             {
                 Data = projObjBC.InsertProjectDetails(project)
@@ -53,8 +58,6 @@ namespace ProjectManager.Controllers
         [ProjectManagerExceptionFilter]
         public JSendResponse UpdateProjectDetails(Project project)
         {
-            projObjBC = new ProjectBC();
-
             return new JSendResponse()
             {
                 Data = projObjBC.UpdateProjectDetails(project)
@@ -65,8 +68,6 @@ namespace ProjectManager.Controllers
         [Route("api/project/delete")]
         public JSendResponse DeleteProjectDetails(Project project)
         {
-            projObjBC = new ProjectBC();
-
             return new JSendResponse()
             {
                 Data = projObjBC.DeleteProjectDetails(project)

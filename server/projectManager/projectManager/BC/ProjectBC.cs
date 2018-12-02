@@ -1,15 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MODEL = ProjectManager.Models;
-using DAC = projectManager.DAC;
+using DAC = ProjectManager.DAC;
 
 namespace ProjectManager.BC
 {
     public class ProjectBC
     {
+        DAC.ProjectManagerEntities dbContext = null;
+        public ProjectBC()
+        {
+            dbContext = new DAC.ProjectManagerEntities();
+        }
+
+        public ProjectBC(DAC.ProjectManagerEntities context)
+        {
+            dbContext = context;
+        }
         public List<MODEL.Project> RetrieveProjects()
         {
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
                 return dbContext.Projects.Select(x => new MODEL.Project()
                 {
@@ -30,7 +40,7 @@ namespace ProjectManager.BC
 
         public int InsertProjectDetails(MODEL.Project project)
         {
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
                 DAC.Project proj = new DAC.Project()
                 {
@@ -55,7 +65,7 @@ namespace ProjectManager.BC
 
         public int UpdateProjectDetails(MODEL.Project project)
         {
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
                 var editProjDetails = (from editProject in dbContext.Projects
                                    where editProject.Project_ID.ToString().Contains(project.ProjectId.ToString())
@@ -84,7 +94,7 @@ namespace ProjectManager.BC
         }
         public int DeleteProjectDetails(MODEL.Project project)
         {
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
                
                 var editDetails = (from proj in dbContext.Projects

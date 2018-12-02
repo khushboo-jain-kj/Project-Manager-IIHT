@@ -6,7 +6,7 @@ using System.Net.Http.Formatting;
 using System.Web.Http;
 using ProjectManager.ActionFilters;
 
-namespace projectManager
+namespace ProjectManager
 {
     public static class WebApiConfig
     {
