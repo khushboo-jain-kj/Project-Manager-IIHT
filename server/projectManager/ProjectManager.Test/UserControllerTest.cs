@@ -12,6 +12,7 @@ namespace ProjectManager.Test
     {
         private DbSet<DAC.User> _users = null;
         private DbSet<DAC.Project> _projects = null;
+        private DbSet<DAC.Task> _tasks = null;
         public override DbSet<DAC.User> Users
         {
             get
@@ -33,6 +34,18 @@ namespace ProjectManager.Test
             set
             {
                 _projects = value;
+            }
+        }
+
+        public override DbSet<DAC.Task> Tasks
+        {
+            get
+            {
+                return _tasks;
+            }
+            set
+            {
+                _tasks = value;
             }
         }
     }

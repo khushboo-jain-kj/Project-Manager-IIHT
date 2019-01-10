@@ -4,6 +4,7 @@ using System.Web.Http;
 
 using ProjectManager.ActionFilters;
 using System.Collections.Generic;
+using System;
 
 namespace ProjectManager.Controllers
 {
@@ -11,13 +12,27 @@ namespace ProjectManager.Controllers
     {
         TaskBC taskObj = null;
 
+        public TaskController()
+        {
+            taskObj = new TaskBC();
+        }
+
+        public TaskController(TaskBC taskBc)
+        {
+            taskObj = taskBc;
+        }
+
         [HttpGet]
         [Route("api/task")]
         [ProjectManagerLogFilter]
         [ProjectManagerExceptionFilter]
         public JSendResponse RetrieveTaskByProjectId(int projectId)
         {
-            taskObj = new TaskBC();
+            if(projectId < 0)
+            {
+                throw new ArithmeticException("ProjectId cannot be negative");
+            }
+
             List<Task> Tasks = taskObj.RetrieveTaskByProjectId(projectId);
 
             return new JSendResponse()
@@ -33,7 +48,6 @@ namespace ProjectManager.Controllers
         [ProjectManagerExceptionFilter]
         public JSendResponse RetrieveParentTasks()
         {
-            taskObj = new TaskBC();
             List<ParentTask> ParentTasks = taskObj.RetrieveParentTasks();
 
             return new JSendResponse()
@@ -42,14 +56,29 @@ namespace ProjectManager.Controllers
             };
 
         }
+
         [HttpPost]
         [ProjectManagerLogFilter]
         [ProjectManagerExceptionFilter]
         [Route("api/task/add")]
         public JSendResponse InsertTaskDetails(Task task)
         {
-            taskObj = new TaskBC();
-
+            if(task == null)
+            {
+                throw new ArgumentNullException("Task object is null");
+            }
+            if(task.Parent_ID < 0)
+            {
+                throw new ArithmeticException("Parent Id of task cannot be negative");
+            }
+            if(task.Project_ID < 0)
+            {
+                throw new ArithmeticException("Project Id cannot be negative");
+            }
+            if(task.TaskId < 0)
+            {
+                throw new ArithmeticException("Task id cannot be negative");
+            }
             return new JSendResponse()
             {
                 Data = taskObj.InsertTaskDetails(task)
@@ -63,8 +92,22 @@ namespace ProjectManager.Controllers
         [Route("api/task/update")]
         public JSendResponse UpdateTaskDetails(Task task)
         {
-            taskObj = new TaskBC();
-
+            if (task == null)
+            {
+                throw new ArgumentNullException("Task object is null");
+            }
+            if (task.Parent_ID < 0)
+            {
+                throw new ArithmeticException("Parent Id of task cannot be negative");
+            }
+            if (task.Project_ID < 0)
+            {
+                throw new ArithmeticException("Project Id cannot be negative");
+            }
+            if (task.TaskId < 0)
+            {
+                throw new ArithmeticException("Task id cannot be negative");
+            }
             return new JSendResponse()
             {
                 Data = taskObj.UpdateTaskDetails(task)
@@ -77,7 +120,22 @@ namespace ProjectManager.Controllers
         [Route("api/task/delete")]
         public JSendResponse DeleteTaskDetails(Task task)
         {
-            taskObj = new TaskBC();
+            if (task == null)
+            {
+                throw new ArgumentNullException("Task object is null");
+            }
+            if (task.Parent_ID < 0)
+            {
+                throw new ArithmeticException("Parent Id of task cannot be negative");
+            }
+            if (task.Project_ID < 0)
+            {
+                throw new ArithmeticException("Project Id cannot be negative");
+            }
+            if (task.TaskId < 0)
+            {
+                throw new ArithmeticException("Task id cannot be negative");
+            }
             return new JSendResponse()
             {
                 Data = taskObj.DeleteTaskDetails(task)

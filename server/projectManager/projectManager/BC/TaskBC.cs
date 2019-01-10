@@ -9,9 +9,19 @@ namespace ProjectManager.BC
 {
     public class TaskBC
     {
+        DAC.ProjectManagerEntities dbContext = null;
+        public TaskBC()
+        {
+            dbContext = new DAC.ProjectManagerEntities();
+        }
+
+        public TaskBC(DAC.ProjectManagerEntities context)
+        {
+            dbContext = context;
+        }
         public List<Task> RetrieveTaskByProjectId(int projectId)
         {
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
                 return dbContext.Tasks.Where(z => z.Project_ID == projectId).Select(x => new Task()
                 {
@@ -34,7 +44,7 @@ namespace ProjectManager.BC
 
         public List<ParentTask> RetrieveParentTasks()
         {
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
                 return dbContext.ParentTasks.Select(x => new ParentTask()
                 {
@@ -47,7 +57,7 @@ namespace ProjectManager.BC
 
         public int InsertTaskDetails(Task task)
         {
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
 
                 if (task.Priority == 0)
@@ -88,7 +98,7 @@ namespace ProjectManager.BC
 
         public int UpdateTaskDetails(Task task)
         {
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
                 var editDetails = (from editTask in dbContext.Tasks
                                    where editTask.Task_ID.ToString().Contains(task.TaskId.ToString())
@@ -118,7 +128,7 @@ namespace ProjectManager.BC
 
         public int DeleteTaskDetails(Task task)
         {
-            using (DAC.ProjectManagerEntities dbContext = new DAC.ProjectManagerEntities())
+            using (dbContext)
             {
                 var deleteTask = (from editTask in dbContext.Tasks
                                   where editTask.Task_ID.ToString().Contains(task.TaskId.ToString())
