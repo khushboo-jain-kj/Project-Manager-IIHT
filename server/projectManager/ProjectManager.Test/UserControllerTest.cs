@@ -631,39 +631,6 @@ namespace ProjectManager.Test
             var controller = new UserController(new BC.UserBC(context));
             var result = controller.InsertUserDetails(user) as JSendResponse;
         }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArithmeticException))]
-        public void TestInsertUser_NegativeUserIdFormat()
-        {
-            var context = new MockProjectManagerEntities();
-            var users = new TestDbSet<DAC.User>();
-            users.Add(new DAC.User()
-            {
-                Employee_ID = "418220",
-                First_Name = "Prateek",
-                Last_Name = "Gangopadhyay",
-                Project_ID = 123,
-                Task_ID = 123,
-                User_ID = 418220
-            });
-            users.Add(new DAC.User()
-            {
-                Employee_ID = "503322",
-                First_Name = "Khushboo",
-                Last_Name = "Jain",
-                Project_ID = 1234,
-                Task_ID = 1234,
-                User_ID = 503322
-            });
-            context.Users = users;
-
-            var user = new Models.User();
-            user.UserId = -1;
-
-            var controller = new UserController(new BC.UserBC(context));
-            var result = controller.InsertUserDetails(user) as JSendResponse;
-        }
     }
 }
 

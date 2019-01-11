@@ -65,10 +65,6 @@ namespace ProjectManager.Controllers
             {
                 throw new ArithmeticException("Project id cannot be negative");
             }
-            if (user.UserId <= 0)
-            {
-                throw new ArithmeticException("User id cannot be negative or 0");
-            }
             return new JSendResponse()
             {
                 Data = _userObjBC.InsertUserDetails(user)
